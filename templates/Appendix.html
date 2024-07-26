@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .heading {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .sub-heading {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .risk-table th, .risk-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        .high {
+            background-color: red;
+            color: white;
+        }
+        .medium {
+            background-color: yellow;
+        }
+        .low {
+            background-color: #FFFF99; /* Light yellow */
+        }
+        .info {
+            background-color: blue;
+            color: white;
+        }
+        .risk-matrix {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .matrix-table {
+            border-collapse: collapse;
+            margin-left: 20px;
+        }
+        .matrix-table th, .matrix-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        .matrix-table .low-low {
+            background-color: #FFFF99; /* Light yellow */
+        }
+        .matrix-table .low-medium, .matrix-table .medium-low {
+            background-color: yellow;
+        }
+        .matrix-table .low-high, .matrix-table .medium-medium, .matrix-table .high-low {
+            background-color: orange;
+        }
+        .matrix-table .medium-high, .matrix-table .high-medium {
+            background-color: red;
+            color: white;
+        }
+        .matrix-table .high-high {
+            background-color: darkred;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Appendices</div>
+        <div class="sub-heading">Risk Ranking Approach</div>
+        <p>Each assessment finding is assigned a risk rating. The risk rating used in this report is based on the following criteria:</p>
+        <table class="risk-table">
+            <tr>
+                <th>High</th>
+                <td class="high">Under specific conditions, these vulnerabilities can potentially make the system unusable and lead to serious security breaches. These vulnerabilities violate basic security design parameters and should be handled with the highest priority.</td>
+            </tr>
+            <tr>
+                <th>Medium</th>
+                <td class="medium">Though the threat is not critical at the moment, it has the potential to become a High risk threat in the future under certain circumstances if not mitigated. Medium risk vulnerabilities require significant mitigation to lower the impact of the threat.</td>
+            </tr>
+            <tr>
+                <th>Low</th>
+                <td class="low">The information found is useful to the attacker, but is not a threat in itself. Existing security controls are likely to be adequate or the risk is acceptable, but over the period this may give rise to more serious problems.</td>
+            </tr>
+            <tr>
+                <th>Info</th>
+                <td class="info">The data revealed is an additional piece of information and there are no serious security implications related to it.</td>
+            </tr>
+        </table>
+        <p>The likelihood of an attack occurring and the impact of a successful attack are used in calculating the risk rating:</p>
+        <div class="risk-matrix">
+            <div>
+                <p>Likelihood</p>
+                <table class="matrix-table">
+                    <tr>
+                        <th></th>
+                        <th>Low</th>
+                        <th>Medium</th>
+                        <th>High</th>
+                    </tr>
+                    <tr>
+                        <th>Impact</th>
+                        <th>Low</th>
+                        <th>Medium</th>
+                        <th>High</th>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td class="low-low">Low</td>
+                        <td class="low-medium">Medium</td>
+                        <td class="low-high">High</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td class="medium-low">Medium</td>
+                        <td class="medium-medium">High</td>
+                        <td class="medium-high">High</td>
+                    </tr>
+                    <tr>
+                        <td>High</td>
+                        <td class="high-low">High</td>
+                        <td class="high-medium">High</td>
+                        <td class="high-high">High</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
